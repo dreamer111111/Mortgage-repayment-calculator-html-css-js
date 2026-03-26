@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/images/favicon-32x32.png"
+    />
+
+    <title>Frontend Mentor | Mortgage Repayment Calculator</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <main class="mortgage-calc-container">
+
+      <section class="calculator-form-section">
+
+        <form class="mortgage-calc" id="mortgage-form">
+
+          <div class="form-header">
+            <h1>Mortgage Calculator</h1>
+            <button type="reset" id="clear-all" class="clear-btn">Clear All</button>
+          </div>
+
+          <div class="input-group">
+            <label for="amount">Mortgage Amount</label>
+            <div class="input-wrapper">
+              <span class="prefix">£</span>
+              <input 
+                type="number" 
+                id="amount" 
+                name="mortgage-amount" 
+                required 
+                aria-required="true"
+              />
+            </div>
+          </div>
+
+          <div class="form-flex-row">
+            <div class="input-group">
+              <label for="term">Mortgage Term</label>
+              <div class="input-wrapper">
+                <input 
+                  type="number" 
+                  id="term" 
+                  name="mortgage-term" 
+                  required 
+                />
+                <span class="suffix">years</span>
+              </div>
+            </div>
+
+            <div class="input-group">
+              <label for="interest">Interest Rate</label>
+              <div class="input-wrapper">
+                <input 
+                  type="number" 
+                  id="interest" 
+                  name="interest-rate" 
+                  step="0.01" 
+                  required 
+                />
+                <span class="suffix">%</span>
+              </div>
+            </div>
+          </div>
+
+          <fieldset class="type-group">
+            <legend>Mortgage Type</legend>
+            
+            <label class="radio-label" for="repayment">
+              <input
+                type="radio"
+                name="mortgage-type"
+                id="repayment"
+                value="repayment"
+                required
+              />
+              Repayment
+            </label>
+
+            <label class="radio-label" for="interest-only">
+              <input
+                type="radio"
+                name="mortgage-type"
+                id="interest-only"
+                value="interest-only"
+              />
+              Interest Only
+            </label>
+          </fieldset>
+
+          <button type="submit" id="calculate-btn" class="calculate-btn">
+            <img src="./assets/images/icon-calculator.svg" alt="" aria-hidden="true" />
+            Calculate Repayments
+          </button>
+        </form>
+      </section>
+
+      <section class="results-container">
+        
+        <div class="before-result" id="empty-state">
+          <img src="./assets/images/illustration-empty.svg" alt="" />
+          <h2>Results shown here</h2>
+          <p>
+            Complete the form and click “calculate repayments” to see what your
+            monthly repayments would be.
+          </p>
+        </div>
+
+        <div class="result-output" id="results-state" hidden aria-live="polite">
+          <h2>Your results</h2>
+          <p>
+            Your results are shown below based on the information you provided. To
+            adjust the results, edit the form and click “calculate repayments”
+            again.
+          </p>
+          
+          <div class="result-card">
+            <div class="monthly-result">
+              <p>Your monthly repayments</p>
+              <span id="monthly-payment-amount" class="highlight"></span>
+            </div>
+            <hr />
+            <div class="total-result">
+              <p>Total you'll repay over the term</p>
+              <span id="total-repayment-amount" class="total"></span>
+            </div>
+          </div>
+        </div>
+
+      </section>
+    </main>
+
+    <script src="./script.js"></script>
+  </body>
+</html>

@@ -31,7 +31,7 @@ Users should be able to:
 ### Links
 
 - Solution URL: [https://github.com/dreamer111111/Mortgage-repayment-calculator-html-css-js]
-- Live Site URL: []
+- Live Site URL: [https://mortgage-calculator-frontendmentor1.netlify.app/]
 ## My process
 
 ### Built with
@@ -57,9 +57,9 @@ const monthlyPayment = P * (r * Math.pow(1 + r, n)) / (Math.pow(1 + r, n) - 1);
 
 
 ### Useful resources
-  Intl.NumberFormat documentation: []
+  Intl.NumberFormat documentation: [https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat]
 
-  CSS :focus-within documentation: []
+  CSS :focus-within documentation: [https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Selectors/:focus-within]
 
 Author
 Frontend Mentor - [https://www.frontendmentor.io/profile/dreamer111111]

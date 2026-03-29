@@ -1,0 +1,346 @@
+@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap");
+
+:root {
+  /* Primary Colors */
+  --lime: hsl(61, 70%, 52%);
+  --red: hsl(4, 69%, 50%);
+
+  /* Neutral Colors */
+  --white: hsl(0, 0%, 100%);
+  --slate-100: hsl(202, 86%, 94%);
+  --slate-300: hsl(203, 41%, 72%);
+  --slate-500: hsl(200, 26%, 54%);
+  --slate-700: hsl(200, 24%, 40%);
+  --slate-900: hsl(202, 55%, 16%);
+
+  /* Fonts */
+  --ff-jakarta: "Plus Jakarta Sans", sans-serif;
+
+  /* Spacing */
+  --space-400: 1.5rem;
+  --space-600: 2.5rem;
+}
+
+/* --- Reset & Base Styles --- */
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--ff-jakarta);
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  background-color: var(--slate-100);
+  color: var(--slate-900);
+}
+
+/* --- Layout Container --- */
+.mortgage-calc-container {
+  background-color: var(--white);
+  width: 100%;
+  max-width: 62.5rem; /* 1000px */
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
+}
+
+.calculator-form-section {
+  padding: var(--space-400);
+}
+
+/* --- Form Header --- */
+.form-header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-block-end: 2.5rem;
+}
+
+.clear-btn {
+  border: none;
+  background: none;
+  color: var(--slate-700);
+  text-decoration: underline;
+  cursor: pointer;
+  font-size: 0.875rem;
+  width: max-content;
+  transition: color 0.2s;
+}
+
+.clear-btn:hover {
+  color: var(--slate-900);
+}
+
+/* --- Input Styling --- */
+.input-group {
+  margin-block-end: 1.5rem;
+}
+
+label,
+legend {
+  font-size: 1rem;
+  color: var(--slate-700);
+  font-weight: 500;
+  margin-block-end: 0.75rem;
+  display: block;
+}
+
+.input-wrapper {
+  display: flex;
+  border: 1px solid var(--slate-300);
+  border-radius: 0.25rem;
+  overflow: hidden;
+  transition: border-color 0.2s;
+}
+
+.input-wrapper:focus-within {
+  border-color: var(--lime);
+}
+
+.input-wrapper input {
+  flex: 1;
+  border: none;
+  padding: 0.75rem 1rem;
+  font-size: 1.125rem;
+  font-weight: 700;
+  outline: none;
+  width: 100%;
+}
+
+.prefix,
+.suffix {
+  background-color: var(--slate-100);
+  padding-inline: 1rem;
+  display: grid;
+  place-items: center;
+  font-weight: 700;
+  color: var(--slate-700);
+  transition: all 0.2s;
+}
+
+.input-wrapper:focus-within .prefix,
+.input-wrapper:focus-within .suffix {
+  background-color: var(--lime);
+  color: var(--slate-900);
+}
+
+/* --- Radio Group --- */
+.type-group {
+  border: none;
+}
+
+.radio-label {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.8rem 1rem;
+  border: 1px solid var(--slate-300);
+  border-radius: 0.5rem;
+  margin-block-end: 0.75rem;
+  cursor: pointer;
+  font-weight: 700;
+  transition: all 0.2s;
+}
+
+.radio-label:hover {
+  border-color: var(--lime);
+}
+
+.radio-label:has(input:checked) {
+  background-color: hsla(61, 70%, 52%, 0.1);
+  border-color: var(--lime);
+}
+
+input[type="radio"] {
+  accent-color: var(--lime);
+}
+
+/* --- Calculate Button --- */
+.calculate-btn {
+  width: 100%;
+  border-radius: 2rem;
+  background-color: var(--lime);
+  padding: 1rem;
+  font-size: 1.125rem;
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-block-start: 1.5rem;
+  transition: opacity 0.2s;
+}
+
+.calculate-btn:hover {
+  opacity: 0.8;
+}
+
+/* --- Results Section --- */
+.results-container {
+  background-color: var(--slate-900);
+  color: var(--white);
+  padding: var(--space-400);
+}
+
+.before-result {
+  text-align: center;
+  padding-block: 2rem;
+}
+
+.before-result p {
+  color: var(--slate-300);
+  margin-block-start: 1rem;
+}
+
+.result-card {
+  background-color: rgba(0, 0, 0, 0.25);
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+  border-block-start: 4px solid var(--lime);
+  margin-block-start: 2rem;
+}
+
+.highlight {
+  color: var(--lime);
+  font-size: 3.5rem;
+  font-weight: 700;
+  display: block;
+  margin-block: 0.5rem 1.5rem;
+}
+
+.total {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+hr {
+  border: none;
+  border-top: 1px solid var(--slate-700);
+  margin-block: 2rem;
+}
+
+/* --- Error States --- */
+.error {
+  color: var(--red);
+  font-size: 0.875rem;
+  margin-block-start: 0.5rem;
+}
+.error[hidden] {
+  display: none;
+}
+/* Hover & Focus Styles*/
+
+
+.input-wrapper:hover,
+.input-wrapper:focus-within {
+  border-color: var(--lime);
+  cursor: pointer;
+}
+
+/* The prefix (£) or suffix (%) */
+.input-wrapper:focus-within .prefix,
+.input-wrapper:focus-within .suffix {
+  background-color: var(--lime);
+  color: var(--slate-900);
+}
+
+/* Radio Button Hover: */
+.radio-label:hover {
+  border-color: var(--lime);
+}
+
+/* Radio Button */
+.radio-label:has(input:checked) {
+  background-color: hsla(61, 70%, 52%, 0.15); /* Very light lime */
+  border-color: var(--lime);
+}
+
+/* --- 2. Error Styles  --- */
+
+/* Base error */
+.error {
+  color: var(--red);
+  font-size: 0.875rem;
+  font-weight: 500;
+  margin-top: 0.5rem;
+  display: block;
+}
+
+/* Hide error by */
+.error[hidden] {
+  display: none;
+}
+
+/* When the parent group has an error: */
+.input-group.has-error .input-wrapper {
+  border-color: var(--red);
+}
+
+/* The symbol (£ or %) turns red in error state */
+.input-group.has-error .prefix,
+.input-group.has-error .suffix {
+  background-color: var(--red);
+  color: var(--white);
+}
+
+/* Radio group error styling */
+.type-group.has-error .radio-label {
+  border-color: var(--red);
+}
+.input-group.has-error .input-wrapper {
+  border-color: var(--red);
+}
+.input-group.has-error .prefix,
+.input-group.has-error .suffix {
+  background-color: var(--red);
+  color: var(--white);
+}
+
+/* --- Responsive Desktop --- */
+@media (min-width: 64em) {
+  .mortgage-calc-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border-radius: 1.5rem;
+    overflow: hidden;
+  }
+
+  .calculator-form-section,
+  .results-container {
+    padding: var(--space-600);
+  }
+
+  .form-header {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .form-flex-row {
+    display: flex;
+    gap: 1.5rem;
+  }
+
+  .form-flex-row > * {
+    flex: 1;
+  }
+
+  .calculate-btn {
+    width: max-content;
+    padding-inline: 2.5rem;
+  }
+
+  .results-container {
+    border-bottom-left-radius: 5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+}

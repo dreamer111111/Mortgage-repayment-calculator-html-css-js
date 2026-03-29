@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -16,62 +16,61 @@
   </head>
   <body>
     <main class="mortgage-calc-container">
-
       <section class="calculator-form-section">
-
-        <form class="mortgage-calc" id="mortgage-form">
-
+        <form class="mortgage-calc" id="mortgage-form" novalidate>
           <div class="form-header">
             <h1>Mortgage Calculator</h1>
-            <button type="reset" id="clear-all" class="clear-btn">Clear All</button>
+            <button type="reset" id="clear-all" class="clear-btn">
+              Clear All
+            </button>
           </div>
 
           <div class="input-group">
             <label for="amount">Mortgage Amount</label>
             <div class="input-wrapper">
               <span class="prefix">£</span>
-              <input 
-                type="number" 
-                id="amount" 
-                name="mortgage-amount" 
-                required 
+              <input
+                type="number"
+                id="amount"
+                name="mortgage-amount"
+                required
                 aria-required="true"
               />
             </div>
+            <p class="error" id="amount-error" hidden>This field is required</p>
           </div>
 
           <div class="form-flex-row">
             <div class="input-group">
               <label for="term">Mortgage Term</label>
               <div class="input-wrapper">
-                <input 
-                  type="number" 
-                  id="term" 
-                  name="mortgage-term" 
-                  required 
-                />
+                <input type="number" id="term" name="mortgage-term" required />
                 <span class="suffix">years</span>
               </div>
+              <p class="error" id="year-error" hidden>This field is required</p>
             </div>
 
             <div class="input-group">
               <label for="interest">Interest Rate</label>
               <div class="input-wrapper">
-                <input 
-                  type="number" 
-                  id="interest" 
-                  name="interest-rate" 
-                  step="0.01" 
-                  required 
+                <input
+                  type="number"
+                  id="interest"
+                  name="interest-rate"
+                  step="0.01"
+                  required
                 />
                 <span class="suffix">%</span>
               </div>
+              <p class="error" id="interest-error" hidden>
+                This field is required
+              </p>
             </div>
           </div>
 
           <fieldset class="type-group">
             <legend>Mortgage Type</legend>
-            
+
             <label class="radio-label" for="repayment">
               <input
                 type="radio"
@@ -92,17 +91,21 @@
               />
               Interest Only
             </label>
+            <p class="error" id="type-error" hidden>This field is required</p>
           </fieldset>
 
           <button type="submit" id="calculate-btn" class="calculate-btn">
-            <img src="./assets/images/icon-calculator.svg" alt="" aria-hidden="true" />
+            <img
+              src="./assets/images/icon-calculator.svg"
+              alt=""
+              aria-hidden="true"
+            />
             Calculate Repayments
           </button>
         </form>
       </section>
 
       <section class="results-container">
-        
         <div class="before-result" id="empty-state">
           <img src="./assets/images/illustration-empty.svg" alt="" />
           <h2>Results shown here</h2>
@@ -115,11 +118,11 @@
         <div class="result-output" id="results-state" hidden aria-live="polite">
           <h2>Your results</h2>
           <p>
-            Your results are shown below based on the information you provided. To
-            adjust the results, edit the form and click “calculate repayments”
-            again.
+            Your results are shown below based on the information you provided.
+            To adjust the results, edit the form and click “calculate
+            repayments” again.
           </p>
-          
+
           <div class="result-card">
             <div class="monthly-result">
               <p>Your monthly repayments</p>
@@ -132,7 +135,6 @@
             </div>
           </div>
         </div>
-
       </section>
     </main>
 
